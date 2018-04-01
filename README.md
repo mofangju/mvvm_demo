@@ -3,13 +3,10 @@
 This anroid app demonstrates some technologies such as Dagger2, Databinding, MVVM, Espresso, Junit, etc.
 
 #### The app has three modules:
-1. **app**: The application implemented via MVVM architecture (ViewModel and Data binding, etc).
+1. **app**: The application is implemented using MVVM architecture (ViewModel and Data Binding, etc).
 2. **data**: Local and remote data accessing and manipulating components. 
-3. **core**: Basic services/utils to all application.
+3. **core**: Basic utils to all application.
 
-
-
-#### Classes have been designed in such a way that it could be inherited and maximize the code reuse.
 
 ### Library reference resources:d
 1. Dagger2: https://github.com/MindorksOpenSource/android-dagger2-example
