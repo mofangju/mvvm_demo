@@ -1,0 +1,64 @@
+apply plugin: 'jacoco'
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        debug {
+            testCoverageEnabled !project.hasProperty('android.injected.invoked.from.ide')
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    lintOptions {
+        lintConfig rootProject.file('lint.xml')
+    }
+}
+
+jacoco {
+    toolVersion = "0.7.4+"
+}
+
+task fullCoverageReport(type: JacocoReport) {
+    dependsOn 'createDebugCoverageReport'
+    dependsOn 'testDebugUnitTest'
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+
+    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*',
+                      '**/*Test*.*', 'android/**/*.*',
+                      '**/*_MembersInjector.class',
+                      '**/Dagger*Component.class',
+                      '**/Dagger*Component$Builder.class',
+                      '**/*_*Factory.class',
+                      '**/*ComponentImpl.class',
+                      '**/*SubComponentBuilder.class']
+    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
+
+    sourceDirectories = files([mainSrc])
+    classDirectories = files([debugTree])
+    executionData = fileTree(dir: "$buildDir", includes: [
+            "jacoco/testDebugUnitTest.exec",
+            "outputs/code-coverage/connected/*coverage.ec"
+    ])
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.billbao.sample.about.AboutActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay"/>
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <TextView
+            android:id="@+id/about_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/about_activity_title_margin_top"
+            android:layout_marginLeft="@dimen/about_activity_title_margin_left"
+            android:text="@string/about_title"
+            android:textSize="@dimen/about_activity_title_text_size" />
+        <TextView
+            android:id="@+id/about_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/about_description_margin_top"
+            android:autoLink="web"
+            android:padding="@dimen/about_description_padding"
+            android:text="@string/project_info"
+            android:textSize="@dimen/about_description_text_size" />
+        <TextView
+            android:id="@+id/about_link"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/about_link_margin_horizontal"
+            android:layout_gravity="center"
+            android:autoLink="web"
+            android:padding="@dimen/about_link_padding"
+            android:text="@string/linkedin_link"
+            android:textSize="@dimen/about_link_text_size"/>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
+

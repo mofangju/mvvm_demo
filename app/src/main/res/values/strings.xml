@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">NBA Teams</string>
+
+    <!-- menu -->
+    <string name="menu_about">About</string>
+    <string name="menu_sort">Sort</string>
+
+    <string name="sort_by_name">Sort by Team Name</string>
+    <string name="sort_by_wins">Sort by Wins</string>
+    <string name="sort_by_losses">Sort by Losses</string>
+
+    <string name="no_data">You have no data!</string>
+
+    <!-- team details activity-->
+    <string name="team_details_title">Team Details</string>
+
+    <!-- about activity-->
+    <string name="about_title">About</string>
+    <string name="project_info">This demo app adopts some technologies such as Dagger2, Databinding, MVVM, Espresso, Junit, etc. My linkedin is listed as follows:</string>
+    <string name="linkedin_link">https://www.linkedin.com/in/billbao/</string>
+
+</resources>

@@ -1,0 +1,87 @@
+apply plugin: 'com.android.application'
+
+apply from: '../common.gradle'
+
+android {
+    defaultConfig {
+        applicationId "com.billbao.sample"
+        testApplicationId "com.billbao.sample.test"
+
+        vectorDrawables.useSupportLibrary = true
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+}
+
+dependencies {
+    implementation project(':core')
+    testImplementation project(':core')
+    androidTestImplementation project(':core')
+    implementation project(':data')
+    testImplementation project(':data')
+    androidTestImplementation project(':data')
+
+    implementation deps.support.app_compat
+    implementation deps.support.recyclerview
+    implementation deps.support.cardview
+    implementation deps.support.design
+    implementation deps.support.support_vector
+    implementation deps.support.animated_vector
+//    implementation deps.support.v4
+
+    implementation deps.room.runtime
+    implementation deps.lifecycle.runtime
+    implementation deps.lifecycle.extensions
+    implementation deps.lifecycle.java8
+    implementation deps.retrofit.runtime
+    implementation deps.okhttp_logging_interceptor
+    implementation deps.retrofit.gson
+    implementation deps.retrofit.rxjava2
+    implementation deps.glide
+    implementation deps.espresso.idling
+    implementation deps.dagger.runtime
+    implementation deps.dagger.android
+    implementation deps.dagger.android_support
+    implementation deps.constraint_layout
+    implementation deps.timber
+    implementation deps.rxjava2
+    implementation deps.rx_android
+    implementation deps.gson
+    implementation deps.guava
+    annotationProcessor deps.dagger.android_support_compiler
+    annotationProcessor deps.dagger.compiler
+    annotationProcessor deps.room.compiler
+    annotationProcessor deps.lifecycle.compiler
+
+    testImplementation deps.junit
+    testImplementation deps.mock_web_server
+    testImplementation(deps.arch_core.testing, {
+        exclude group: 'com.android.support', module: 'support-compat'
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'support-core-utils'
+    })
+    testImplementation deps.mockito.core
+    
+    androidTestImplementation deps.support.app_compat
+    androidTestImplementation deps.support.recyclerview
+    androidTestImplementation deps.support.cardview
+    androidTestImplementation deps.support.design
+    androidTestImplementation(deps.espresso.core, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    })
+    androidTestImplementation(deps.espresso.contrib, {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
+    })
+    androidTestImplementation(deps.arch_core.testing, {
+    })
+    androidTestImplementation deps.dexmaker
+    androidTestImplementation deps.mockito.core, { exclude group: 'net.bytebuddy' }
+    androidTestImplementation deps.atsl.runner
+    androidTestImplementation deps.atsl.rules
+    androidTestImplementation deps.room.testing
+}
+
