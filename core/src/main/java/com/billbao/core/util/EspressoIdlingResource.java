@@ -19,8 +19,10 @@ package com.billbao.core.util;
 
 import android.support.test.espresso.IdlingResource;
 
+import com.billbao.core.BuildConfig;
+
 /**
- * Contains a static reference to {@link IdlingResource}, only available in the 'mock' build type.
+ * Contains a static reference to {@link IdlingResource}.
  */
 public class EspressoIdlingResource {
 
@@ -30,11 +32,15 @@ public class EspressoIdlingResource {
             new SimpleCountingIdlingResource(RESOURCE);
 
     public static void increment() {
-        mCountingIdlingResource.increment();
+        if (BuildConfig.DEBUG) {
+            mCountingIdlingResource.increment();
+        }
     }
 
     public static void decrement() {
-        mCountingIdlingResource.decrement();
+        if (BuildConfig.DEBUG) {
+            mCountingIdlingResource.decrement();
+        }
     }
 
     public static IdlingResource getIdlingResource() {
