@@ -23,13 +23,13 @@ dependencies {
     testImplementation project(':data')
     androidTestImplementation project(':data')
 
+    implementation deps.kotlin.stdlib
     implementation deps.support.app_compat
     implementation deps.support.recyclerview
     implementation deps.support.cardview
     implementation deps.support.design
     implementation deps.support.support_vector
     implementation deps.support.animated_vector
-//    implementation deps.support.v4
 
     implementation deps.room.runtime
     implementation deps.lifecycle.runtime

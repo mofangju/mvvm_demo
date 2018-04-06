@@ -1,4 +1,7 @@
 apply plugin: 'jacoco'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
 android {
     compileSdkVersion build_versions.target_sdk
     buildToolsVersion build_versions.build_tools
@@ -61,4 +64,9 @@ task fullCoverageReport(type: JacocoReport) {
             "jacoco/testDebugUnitTest.exec",
             "outputs/code-coverage/connected/*coverage.ec"
     ])
+}
+
+dependencies {
+    implementation deps.kotlin.stdlib
+    testImplementation deps.kotlin.test
 }
