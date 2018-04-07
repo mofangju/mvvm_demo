@@ -1,8 +1,16 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
 apply from: '../common.gradle'
 
 android {
+    dataBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.billbao.sample"
         testApplicationId "com.billbao.sample.test"
@@ -24,12 +32,36 @@ dependencies {
     androidTestImplementation project(':data')
 
     implementation deps.kotlin.stdlib
+
+//    kapt "android.arch.persistence.room:compiler:$rootProject.roomDatabaseVersion"
+
+    kapt "com.android.databinding:compiler:3.1.0"
+
+    kapt deps.dagger.compiler //"com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+    kapt deps.dagger.android_support_processor //"com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
+
+//    kaptTest "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+//    kaptAndroidTest "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+
+    implementation "androidx.core:core-ktx:0.3"
+
+    testImplementation deps.kotlin.test
+    androidTestImplementation deps.kotlin.test
+
+    kaptTest "com.android.databinding:compiler:3.1.0"
+    kaptTest deps.dagger.compiler //"com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+    kaptAndroidTest deps.dagger.android_support_processor //"com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
+
+
+
+
     implementation deps.support.app_compat
     implementation deps.support.recyclerview
     implementation deps.support.cardview
     implementation deps.support.design
     implementation deps.support.support_vector
     implementation deps.support.animated_vector
+    implementation deps.support.v4
 
     implementation deps.room.runtime
     implementation deps.lifecycle.runtime
@@ -50,7 +82,7 @@ dependencies {
     implementation deps.rx_android
     implementation deps.gson
     implementation deps.guava
-    annotationProcessor deps.dagger.android_support_compiler
+    annotationProcessor deps.dagger.android_support_processor
     annotationProcessor deps.dagger.compiler
     annotationProcessor deps.room.compiler
     annotationProcessor deps.lifecycle.compiler

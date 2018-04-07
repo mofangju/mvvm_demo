@@ -1,6 +1,6 @@
 # Android MVVM Demo App
 
-This anroid app demonstrates some technologies such as Dagger2, Databinding, MVVM, Espresso, Junit, etc.
+This android app demonstrates some technologies such as Dagger2, Databinding, MVVM, Espresso, Junit, etc.
 
 #### The app has three modules:
 1. **app**: The application is implemented using MVVM architecture (ViewModel and Data Binding, etc).
@@ -8,7 +8,7 @@ This anroid app demonstrates some technologies such as Dagger2, Databinding, MVV
 3. **core**: Basic utils to all application.
 
 
-### Library reference resources:d
+### Library reference resources:
 1. Dagger2: https://github.com/MindorksOpenSource/android-dagger2-example
 2. Data Binding: https://developer.android.com/topic/libraries/data-binding/index.html
 3. Android Testing: https://developer.android.com/training/testing/index.html

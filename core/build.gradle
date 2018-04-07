@@ -29,7 +29,7 @@ dependencies {
     implementation deps.guava
 
 
-    annotationProcessor deps.dagger.android_support_compiler
+    annotationProcessor deps.dagger.android_support_processor
     annotationProcessor deps.dagger.compiler
     annotationProcessor deps.room.compiler
     annotationProcessor deps.lifecycle.compiler
