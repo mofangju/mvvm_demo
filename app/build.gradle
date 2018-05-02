@@ -1,8 +1,16 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
 apply from: '../common.gradle'
 
 android {
+    dataBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.billbao.sample"
         testApplicationId "com.billbao.sample.test"
@@ -23,13 +31,19 @@ dependencies {
     testImplementation project(':data')
     androidTestImplementation project(':data')
 
+    implementation deps.kotlin.stdlib
+    kapt deps.kotlin.databinding
+    kapt deps.dagger.compiler
+    kapt deps.dagger.android_support_processor
+
+//    implementation "androidx.core:core-ktx:0.3"
     implementation deps.support.app_compat
     implementation deps.support.recyclerview
     implementation deps.support.cardview
     implementation deps.support.design
     implementation deps.support.support_vector
     implementation deps.support.animated_vector
-//    implementation deps.support.v4
+    implementation deps.support.v4
 
     implementation deps.room.runtime
     implementation deps.lifecycle.runtime
@@ -50,7 +64,7 @@ dependencies {
     implementation deps.rx_android
     implementation deps.gson
     implementation deps.guava
-    annotationProcessor deps.dagger.android_support_compiler
+    annotationProcessor deps.dagger.android_support_processor
     annotationProcessor deps.dagger.compiler
     annotationProcessor deps.room.compiler
     annotationProcessor deps.lifecycle.compiler
@@ -63,7 +77,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-core-utils'
     })
     testImplementation deps.mockito.core
-    
+    testImplementation deps.kotlin.test
+
     androidTestImplementation deps.support.app_compat
     androidTestImplementation deps.support.recyclerview
     androidTestImplementation deps.support.cardview
@@ -87,5 +102,11 @@ dependencies {
     androidTestImplementation deps.atsl.runner
     androidTestImplementation deps.atsl.rules
     androidTestImplementation deps.room.testing
+    androidTestImplementation deps.kotlin.test
+
+    kaptTest deps.kotlin.databinding
+    kaptTest deps.dagger.compiler
+    kaptAndroidTest deps.dagger.android_support_processor
+
 }
 

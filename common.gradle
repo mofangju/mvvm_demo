@@ -1,4 +1,8 @@
 apply plugin: 'jacoco'
+//apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion build_versions.target_sdk
     buildToolsVersion build_versions.build_tools
@@ -62,3 +66,18 @@ task fullCoverageReport(type: JacocoReport) {
             "outputs/code-coverage/connected/*coverage.ec"
     ])
 }
+
+//dependencies {
+//    implementation deps.kotlin.stdlib
+//
+////    kapt "android.arch.persistence.room:compiler:$rootProject.roomDatabaseVersion"
+//    kapt deps.dagger.compiler //"com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+//    kapt deps.dagger.android_support_processor //"com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
+//
+////    kaptTest "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+////    kaptAndroidTest "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+//
+//    implementation "androidx.core:core-ktx:0.3"
+//
+//    testImplementation deps.kotlin.test
+//}
