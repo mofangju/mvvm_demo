@@ -27,12 +27,10 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasActivityInjector;
 
 /**
- * Todo: tablet
- * Todo: rotation
- * Todo: material design
- * app icon
- * espresso
- *
+ * There are many ways to improve the implementation, such as
+ *  - tablet support
+ *  - more material design elements
+ *  - better app icon
  */
 public class DemoApp extends Application implements HasActivityInjector {
     @Inject
