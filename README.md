@@ -1,6 +1,6 @@
 # Android MVVM Demo App
 
-This android app demonstrates some technologies such as Dagger2, Databinding, MVVM, Espresso, Junit, etc.
+This android app demonstrates some technologies such as Dagger2, Databinding, MVVM, Kotlin, Espresso, Junit, etc.
 
 #### The app has three modules:
 1. **app**: The application is implemented using MVVM architecture (ViewModel and Data Binding, etc).
@@ -13,8 +13,12 @@ This android app demonstrates some technologies such as Dagger2, Databinding, MV
 2. Data Binding: https://developer.android.com/topic/libraries/data-binding/index.html
 3. Android Testing: https://developer.android.com/training/testing/index.html
 4. Room: https://developer.android.com/topic/libraries/architecture/room.html
-5. Android MVVM Architecture: https://github.com/MindorksOpenSource/android-mvvm-architecture
-
+5. Kotlin: https://kotlinlang.org (Note: demo app in kotlin branch)
+6. Android MVVM Architecture: https://github.com/MindorksOpenSource/android-mvvm-architecture
+7. Espresso: https://developer.android.com/training/testing/espresso
+8. JUnit: https://junit.org/junit4
+9. Mockito: http://site.mockito.org
+10. Hamcrest: http://hamcrest.org/JavaHamcrest
 
 ### License
 ```
